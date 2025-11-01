@@ -77,7 +77,7 @@ async def send(token, url, data):
 async def multi(uid, server, url):
     enc = encrypt_message(create_like(uid, server))
     tokens = load_tokens(server)
-    return await asyncio.gather(*[send(tokens[i % len(tokens)]['token'], url, enc) for i in range(105)])
+    return await asyncio.gather(*[send(tokens[i % len(tokens)]['token'], url, enc) for i in range(1005)])
 
 def get_info_like(enc, server, token):
     r = requests.post(
@@ -117,7 +117,7 @@ def like():
     after_like = int(after.get('AccountInfo', {}).get('Likes', 0))
 
     return jsonify({
-        "credits": "Adil",
+        "credits": "em_official_team",
         "likes_added": after_like - before_like,
         "likes_before": before_like,
         "likes_after": after_like,
